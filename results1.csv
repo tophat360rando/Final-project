@@ -1,0 +1,321 @@
+DataType,Size,Operation,Structure,AvgMs,StdDevMs,Trials
+Integer,10000,Sequential traversal,MyArrayList,0.4734,0.3336,10
+Integer,10000,Sequential traversal,MyLinkedList,0.204,0.0397,10
+Integer,10000,Sequential traversal,java.util.ArrayList,0.1884,0.0183,10
+Integer,10000,Sequential traversal,java.util.LinkedList,0.1714,0.0138,10
+Integer,10000,Random access,MyArrayList,0.1066,0.0107,10
+Integer,10000,Random access,MyLinkedList,9.4619,1.0239,10
+Integer,10000,Random access,java.util.ArrayList,0.1219,0.0215,10
+Integer,10000,Random access,java.util.LinkedList,5.5267,0.8316,10
+Integer,10000,Insert at beginning,MyArrayList,0.6592,0.1162,10
+Integer,10000,Insert at beginning,MyLinkedList,0.0668,0.0163,10
+Integer,10000,Insert at beginning,java.util.ArrayList,0.8781,1.2577,10
+Integer,10000,Insert at beginning,java.util.LinkedList,0.1162,0.0165,10
+Integer,10000,Insert at middle,MyArrayList,0.2755,0.0449,10
+Integer,10000,Insert at middle,MyLinkedList,10.0671,1.1661,10
+Integer,10000,Insert at middle,java.util.ArrayList,0.2753,0.0351,10
+Integer,10000,Insert at middle,java.util.LinkedList,9.8811,0.2965,10
+Integer,10000,Insert at end,MyArrayList,0.0495,0.0017,10
+Integer,10000,Insert at end,MyLinkedList,0.0532,0.0047,10
+Integer,10000,Insert at end,java.util.ArrayList,0.0395,0.0023,10
+Integer,10000,Insert at end,java.util.LinkedList,0.0552,0.0089,10
+Integer,10000,Delete at beginning,MyArrayList,0.3741,0.0207,10
+Integer,10000,Delete at beginning,MyLinkedList,0.0417,0.0062,10
+Integer,10000,Delete at beginning,java.util.ArrayList,0.375,0.0137,10
+Integer,10000,Delete at beginning,java.util.LinkedList,0.0763,0.0458,10
+Integer,10000,Delete at middle,MyArrayList,0.2364,0.0175,10
+Integer,10000,Delete at middle,MyLinkedList,8.6191,0.0504,10
+Integer,10000,Delete at middle,java.util.ArrayList,0.2473,0.0223,10
+Integer,10000,Delete at middle,java.util.LinkedList,9.0983,1.0655,10
+Integer,10000,Delete at end,MyArrayList,0.0685,0.0068,10
+Integer,10000,Delete at end,MyLinkedList,17.0996,0.0906,10
+Integer,10000,Delete at end,java.util.ArrayList,0.0906,0.0291,10
+Integer,10000,Delete at end,java.util.LinkedList,0.516,1.2946,10
+Integer,50000,Sequential traversal,MyArrayList,0.2265,0.0162,10
+Integer,50000,Sequential traversal,MyLinkedList,0.3486,0.0237,10
+Integer,50000,Sequential traversal,java.util.ArrayList,0.3351,0.0363,10
+Integer,50000,Sequential traversal,java.util.LinkedList,0.4005,0.0341,10
+Integer,50000,Random access,MyArrayList,0.1041,0.0054,10
+Integer,50000,Random access,MyLinkedList,44.787,0.4405,10
+Integer,50000,Random access,java.util.ArrayList,0.0283,0.0095,10
+Integer,50000,Random access,java.util.LinkedList,23.3002,0.6715,10
+Integer,50000,Insert at beginning,MyArrayList,5.0005,0.2704,10
+Integer,50000,Insert at beginning,MyLinkedList,0.0295,0.0136,10
+Integer,50000,Insert at beginning,java.util.ArrayList,5.0344,0.3446,10
+Integer,50000,Insert at beginning,java.util.LinkedList,0.0246,0.0048,10
+Integer,50000,Insert at middle,MyArrayList,2.5237,0.2124,10
+Integer,50000,Insert at middle,MyLinkedList,45.7833,0.9228,10
+Integer,50000,Insert at middle,java.util.ArrayList,2.3604,0.0166,10
+Integer,50000,Insert at middle,java.util.LinkedList,45.0235,0.1369,10
+Integer,50000,Insert at end,MyArrayList,0.0573,0.0259,10
+Integer,50000,Insert at end,MyLinkedList,0.0253,0.0102,10
+Integer,50000,Insert at end,java.util.ArrayList,0.0181,0.0021,10
+Integer,50000,Insert at end,java.util.LinkedList,0.0241,0.0041,10
+Integer,50000,Delete at beginning,MyArrayList,4.6747,0.0282,10
+Integer,50000,Delete at beginning,MyLinkedList,0.0156,0.0129,10
+Integer,50000,Delete at beginning,java.util.ArrayList,4.6335,0.0271,10
+Integer,50000,Delete at beginning,java.util.LinkedList,0.0149,0.0026,10
+Integer,50000,Delete at middle,MyArrayList,2.4107,0.1165,10
+Integer,50000,Delete at middle,MyLinkedList,46.2372,2.4097,10
+Integer,50000,Delete at middle,java.util.ArrayList,2.3089,0.0227,10
+Integer,50000,Delete at middle,java.util.LinkedList,44.6242,1.9593,10
+Integer,50000,Delete at end,MyArrayList,0.0643,0.001,10
+Integer,50000,Delete at end,MyLinkedList,92.1903,3.4689,10
+Integer,50000,Delete at end,java.util.ArrayList,0.0259,0.0096,10
+Integer,50000,Delete at end,java.util.LinkedList,0.0233,0.0056,10
+Integer,100000,Sequential traversal,MyArrayList,0.6836,0.0509,10
+Integer,100000,Sequential traversal,MyLinkedList,0.8251,0.1838,10
+Integer,100000,Sequential traversal,java.util.ArrayList,0.7757,0.2268,10
+Integer,100000,Sequential traversal,java.util.LinkedList,0.7753,0.1161,10
+Integer,100000,Random access,MyArrayList,0.051,0.0177,10
+Integer,100000,Random access,MyLinkedList,91.9834,0.8069,10
+Integer,100000,Random access,java.util.ArrayList,0.0296,0.0139,10
+Integer,100000,Random access,java.util.LinkedList,45.5782,1.1051,10
+Integer,100000,Insert at beginning,MyArrayList,9.4212,0.0566,10
+Integer,100000,Insert at beginning,MyLinkedList,0.1456,0.3737,10
+Integer,100000,Insert at beginning,java.util.ArrayList,9.7373,0.3261,10
+Integer,100000,Insert at beginning,java.util.LinkedList,0.022,0.001,10
+Integer,100000,Insert at middle,MyArrayList,4.9205,0.5513,10
+Integer,100000,Insert at middle,MyLinkedList,92.6171,2.4962,10
+Integer,100000,Insert at middle,java.util.ArrayList,4.7311,0.0334,10
+Integer,100000,Insert at middle,java.util.LinkedList,94.8731,2.6514,10
+Integer,100000,Insert at end,MyArrayList,0.0223,0.0106,10
+Integer,100000,Insert at end,MyLinkedList,0.0351,0.0385,10
+Integer,100000,Insert at end,java.util.ArrayList,0.0165,0.0021,10
+Integer,100000,Insert at end,java.util.LinkedList,0.0259,0.0087,10
+Integer,100000,Delete at beginning,MyArrayList,9.4989,0.186,10
+Integer,100000,Delete at beginning,MyLinkedList,0.0202,0.0303,10
+Integer,100000,Delete at beginning,java.util.ArrayList,9.5166,0.3762,10
+Integer,100000,Delete at beginning,java.util.LinkedList,0.013,0.0022,10
+Integer,100000,Delete at middle,MyArrayList,4.6461,0.0221,10
+Integer,100000,Delete at middle,MyLinkedList,92.4318,4.5631,10
+Integer,100000,Delete at middle,java.util.ArrayList,5.2339,1.1998,10
+Integer,100000,Delete at middle,java.util.LinkedList,95.6047,6.071,10
+Integer,100000,Delete at end,MyArrayList,0.1261,0.3321,10
+Integer,100000,Delete at end,MyLinkedList,189.379,3.2581,10
+Integer,100000,Delete at end,java.util.ArrayList,0.0157,0.0033,10
+Integer,100000,Delete at end,java.util.LinkedList,0.0269,0.0136,10
+Integer,300000,Sequential traversal,MyArrayList,2.0133,0.3577,10
+Integer,300000,Sequential traversal,MyLinkedList,2.2237,0.3161,10
+Integer,300000,Sequential traversal,java.util.ArrayList,2.3491,0.6923,10
+Integer,300000,Sequential traversal,java.util.LinkedList,2.4283,0.1221,10
+Integer,300000,Random access,MyArrayList,0.0229,0.0028,10
+Integer,300000,Random access,MyLinkedList,293.8566,7.7247,10
+Integer,300000,Random access,java.util.ArrayList,0.0363,0.0102,10
+Integer,300000,Random access,java.util.LinkedList,144.1802,7.6278,10
+Integer,300000,Insert at beginning,MyArrayList,28.6169,0.2913,10
+Integer,300000,Insert at beginning,MyLinkedList,0.0283,0.0054,10
+Integer,300000,Insert at beginning,java.util.ArrayList,29.3906,2.188,10
+Integer,300000,Insert at beginning,java.util.LinkedList,0.027,0.0018,10
+Integer,300000,Insert at middle,MyArrayList,14.6349,0.6944,10
+Integer,300000,Insert at middle,MyLinkedList,283.6882,3.9712,10
+Integer,300000,Insert at middle,java.util.ArrayList,14.3934,0.4958,10
+Integer,300000,Insert at middle,java.util.LinkedList,283.71,5.7997,10
+Integer,300000,Insert at end,MyArrayList,0.0165,0.0007,10
+Integer,300000,Insert at end,MyLinkedList,0.0231,0.0014,10
+Integer,300000,Insert at end,java.util.ArrayList,0.0186,0.0035,10
+Integer,300000,Insert at end,java.util.LinkedList,0.0285,0.0054,10
+Integer,300000,Delete at beginning,MyArrayList,29.6556,0.7174,10
+Integer,300000,Delete at beginning,MyLinkedList,0.0139,0.005,10
+Integer,300000,Delete at beginning,java.util.ArrayList,28.992,1.062,10
+Integer,300000,Delete at beginning,java.util.LinkedList,0.0158,0.0027,10
+Integer,300000,Delete at middle,MyArrayList,14.7174,0.9594,10
+Integer,300000,Delete at middle,MyLinkedList,281.6332,4.5846,10
+Integer,300000,Delete at middle,java.util.ArrayList,14.4143,0.564,10
+Integer,300000,Delete at middle,java.util.LinkedList,284.2874,3.4246,10
+Integer,300000,Delete at end,MyArrayList,0.0133,0.0003,10
+Integer,300000,Delete at end,MyLinkedList,567.387,7.5036,10
+Integer,300000,Delete at end,java.util.ArrayList,0.0149,0.0015,10
+Integer,300000,Delete at end,java.util.LinkedList,0.0239,0.0024,10
+Integer,500000,Sequential traversal,MyArrayList,3.209,0.1356,10
+Integer,500000,Sequential traversal,MyLinkedList,4.9518,1.6695,10
+Integer,500000,Sequential traversal,java.util.ArrayList,3.3013,0.2912,10
+Integer,500000,Sequential traversal,java.util.LinkedList,4.0177,0.1282,10
+Integer,500000,Random access,MyArrayList,0.0318,0.0138,10
+Integer,500000,Random access,MyLinkedList,474.2756,7.3207,10
+Integer,500000,Random access,java.util.ArrayList,0.0305,0.0035,10
+Integer,500000,Random access,java.util.LinkedList,241.6578,5.7608,10
+Integer,500000,Insert at beginning,MyArrayList,55.2811,2.7559,10
+Integer,500000,Insert at beginning,MyLinkedList,0.0349,0.0116,10
+Integer,500000,Insert at beginning,java.util.ArrayList,54.3189,2.8248,10
+Integer,500000,Insert at beginning,java.util.LinkedList,0.0334,0.0098,10
+Integer,500000,Insert at middle,MyArrayList,24.501,1.2294,10
+Integer,500000,Insert at middle,MyLinkedList,470.2369,5.9987,10
+Integer,500000,Insert at middle,java.util.ArrayList,24.2301,0.977,10
+Integer,500000,Insert at middle,java.util.LinkedList,473.2913,4.5093,10
+Integer,500000,Insert at end,MyArrayList,0.0208,0.0015,10
+Integer,500000,Insert at end,MyLinkedList,0.0323,0.0068,10
+Integer,500000,Insert at end,java.util.ArrayList,0.0225,0.0055,10
+Integer,500000,Insert at end,java.util.LinkedList,0.0336,0.0101,10
+Integer,500000,Delete at beginning,MyArrayList,54.5506,3.1398,10
+Integer,500000,Delete at beginning,MyLinkedList,0.0165,0.0024,10
+Integer,500000,Delete at beginning,java.util.ArrayList,55.6774,3.7398,10
+Integer,500000,Delete at beginning,java.util.LinkedList,0.0193,0.003,10
+Integer,500000,Delete at middle,MyArrayList,25.028,1.2105,10
+Integer,500000,Delete at middle,MyLinkedList,471.2602,6.0736,10
+Integer,500000,Delete at middle,java.util.ArrayList,24.8625,1.2985,10
+Integer,500000,Delete at middle,java.util.LinkedList,471.4507,7.3608,10
+Integer,500000,Delete at end,MyArrayList,0.016,0.0009,10
+Integer,500000,Delete at end,MyLinkedList,947.8687,15.4331,10
+Integer,500000,Delete at end,java.util.ArrayList,0.017,0.0022,10
+Integer,500000,Delete at end,java.util.LinkedList,0.0292,0.0105,10
+String,10000,Sequential traversal,MyArrayList,0.1521,0.0712,10
+String,10000,Sequential traversal,MyLinkedList,0.1009,0.0262,10
+String,10000,Sequential traversal,java.util.ArrayList,0.0867,0.0136,10
+String,10000,Sequential traversal,java.util.LinkedList,0.2881,0.3687,10
+String,10000,Random access,MyArrayList,0.1055,0.0493,10
+String,10000,Random access,MyLinkedList,9.1343,0.6055,10
+String,10000,Random access,java.util.ArrayList,0.0191,0.0047,10
+String,10000,Random access,java.util.LinkedList,4.7527,0.4812,10
+String,10000,Insert at beginning,MyArrayList,0.3941,0.0441,10
+String,10000,Insert at beginning,MyLinkedList,0.0729,0.0759,10
+String,10000,Insert at beginning,java.util.ArrayList,0.4471,0.0858,10
+String,10000,Insert at beginning,java.util.LinkedList,0.0218,0.0024,10
+String,10000,Insert at middle,MyArrayList,0.1892,0.0095,10
+String,10000,Insert at middle,MyLinkedList,10.3276,1.2562,10
+String,10000,Insert at middle,java.util.ArrayList,0.2468,0.0304,10
+String,10000,Insert at middle,java.util.LinkedList,10.2278,0.8666,10
+String,10000,Insert at end,MyArrayList,0.0231,0.0023,10
+String,10000,Insert at end,MyLinkedList,0.0292,0.0123,10
+String,10000,Insert at end,java.util.ArrayList,0.0214,0.0094,10
+String,10000,Insert at end,java.util.LinkedList,0.025,0.0073,10
+String,10000,Delete at beginning,MyArrayList,0.3745,0.0743,10
+String,10000,Delete at beginning,MyLinkedList,0.0159,0.0109,10
+String,10000,Delete at beginning,java.util.ArrayList,0.3582,0.0605,10
+String,10000,Delete at beginning,java.util.LinkedList,0.0125,0.0026,10
+String,10000,Delete at middle,MyArrayList,0.1742,0.0148,10
+String,10000,Delete at middle,MyLinkedList,8.4123,0.0317,10
+String,10000,Delete at middle,java.util.ArrayList,0.1802,0.0184,10
+String,10000,Delete at middle,java.util.LinkedList,8.5186,0.078,10
+String,10000,Delete at end,MyArrayList,0.0129,0.0005,10
+String,10000,Delete at end,MyLinkedList,16.9534,0.1117,10
+String,10000,Delete at end,java.util.ArrayList,0.0215,0.0222,10
+String,10000,Delete at end,java.util.LinkedList,0.0184,0.0022,10
+String,50000,Sequential traversal,MyArrayList,0.4106,0.0377,10
+String,50000,Sequential traversal,MyLinkedList,0.4364,0.0744,10
+String,50000,Sequential traversal,java.util.ArrayList,0.4611,0.1293,10
+String,50000,Sequential traversal,java.util.LinkedList,0.5374,0.0672,10
+String,50000,Random access,MyArrayList,0.0255,0.0089,10
+String,50000,Random access,MyLinkedList,47.6108,2.7259,10
+String,50000,Random access,java.util.ArrayList,0.0253,0.0107,10
+String,50000,Random access,java.util.LinkedList,23.2175,0.9972,10
+String,50000,Insert at beginning,MyArrayList,4.9689,0.4573,10
+String,50000,Insert at beginning,MyLinkedList,0.0267,0.0072,10
+String,50000,Insert at beginning,java.util.ArrayList,5.131,0.4602,10
+String,50000,Insert at beginning,java.util.LinkedList,0.0267,0.0053,10
+String,50000,Insert at middle,MyArrayList,3.0895,0.6252,10
+String,50000,Insert at middle,MyLinkedList,46.8452,1.3232,10
+String,50000,Insert at middle,java.util.ArrayList,2.5853,0.2326,10
+String,50000,Insert at middle,java.util.LinkedList,45.9795,0.7302,10
+String,50000,Insert at end,MyArrayList,0.0188,0.0032,10
+String,50000,Insert at end,MyLinkedList,0.0213,0.0008,10
+String,50000,Insert at end,java.util.ArrayList,0.0168,0.0013,10
+String,50000,Insert at end,java.util.LinkedList,0.0231,0.0038,10
+String,50000,Delete at beginning,MyArrayList,5.4608,0.6888,10
+String,50000,Delete at beginning,MyLinkedList,0.0108,0.0051,10
+String,50000,Delete at beginning,java.util.ArrayList,5.3393,0.7048,10
+String,50000,Delete at beginning,java.util.LinkedList,0.0134,0.0025,10
+String,50000,Delete at middle,MyArrayList,2.6642,0.934,10
+String,50000,Delete at middle,MyLinkedList,45.5125,1.5154,10
+String,50000,Delete at middle,java.util.ArrayList,2.542,0.3861,10
+String,50000,Delete at middle,java.util.LinkedList,49.2461,2.533,10
+String,50000,Delete at end,MyArrayList,0.02,0.0062,10
+String,50000,Delete at end,MyLinkedList,110.3403,5.5864,10
+String,50000,Delete at end,java.util.ArrayList,0.015,0.0027,10
+String,50000,Delete at end,java.util.LinkedList,0.023,0.0035,10
+String,100000,Sequential traversal,MyArrayList,0.9592,0.2291,10
+String,100000,Sequential traversal,MyLinkedList,0.986,0.1809,10
+String,100000,Sequential traversal,java.util.ArrayList,0.8988,0.1575,10
+String,100000,Sequential traversal,java.util.LinkedList,1.112,0.1573,10
+String,100000,Random access,MyArrayList,0.0263,0.006,10
+String,100000,Random access,MyLinkedList,103.2743,4.9946,10
+String,100000,Random access,java.util.ArrayList,0.0465,0.0096,10
+String,100000,Random access,java.util.LinkedList,51.189,6.0138,10
+String,100000,Insert at beginning,MyArrayList,10.8791,0.8414,10
+String,100000,Insert at beginning,MyLinkedList,0.0233,0.0019,10
+String,100000,Insert at beginning,java.util.ArrayList,9.652,0.72,10
+String,100000,Insert at beginning,java.util.LinkedList,0.0273,0.0087,10
+String,100000,Insert at middle,MyArrayList,4.712,0.0236,10
+String,100000,Insert at middle,MyLinkedList,93.7771,3.2016,10
+String,100000,Insert at middle,java.util.ArrayList,4.7581,0.0517,10
+String,100000,Insert at middle,java.util.LinkedList,94.7569,3.0902,10
+String,100000,Insert at end,MyArrayList,0.0164,0.0015,10
+String,100000,Insert at end,MyLinkedList,0.022,0.0016,10
+String,100000,Insert at end,java.util.ArrayList,0.0179,0.002,10
+String,100000,Insert at end,java.util.LinkedList,0.0226,0.0009,10
+String,100000,Delete at beginning,MyArrayList,9.288,0.0288,10
+String,100000,Delete at beginning,MyLinkedList,0.0107,0.0018,10
+String,100000,Delete at beginning,java.util.ArrayList,9.3705,0.0823,10
+String,100000,Delete at beginning,java.util.LinkedList,0.0137,0.0048,10
+String,100000,Delete at middle,MyArrayList,4.7138,0.0779,10
+String,100000,Delete at middle,MyLinkedList,93.6385,3.3693,10
+String,100000,Delete at middle,java.util.ArrayList,4.8489,0.2026,10
+String,100000,Delete at middle,java.util.LinkedList,94.6471,4.1152,10
+String,100000,Delete at end,MyArrayList,0.0191,0.008,10
+String,100000,Delete at end,MyLinkedList,190.7457,3.9755,10
+String,100000,Delete at end,java.util.ArrayList,0.0148,0.0053,10
+String,100000,Delete at end,java.util.LinkedList,0.023,0.0021,10
+String,300000,Sequential traversal,MyArrayList,2.3555,0.2767,10
+String,300000,Sequential traversal,MyLinkedList,2.6174,0.4712,10
+String,300000,Sequential traversal,java.util.ArrayList,2.6346,0.9521,10
+String,300000,Sequential traversal,java.util.LinkedList,2.6435,0.238,10
+String,300000,Random access,MyArrayList,0.0302,0.0075,10
+String,300000,Random access,MyLinkedList,292.533,4.2787,10
+String,300000,Random access,java.util.ArrayList,0.0345,0.007,10
+String,300000,Random access,java.util.LinkedList,142.5945,5.9408,10
+String,300000,Insert at beginning,MyArrayList,29.3551,2.0991,10
+String,300000,Insert at beginning,MyLinkedList,0.0265,0.0016,10
+String,300000,Insert at beginning,java.util.ArrayList,28.026,0.0909,10
+String,300000,Insert at beginning,java.util.LinkedList,0.0279,0.0059,10
+String,300000,Insert at middle,MyArrayList,14.2369,0.228,10
+String,300000,Insert at middle,MyLinkedList,285.3397,3.3778,10
+String,300000,Insert at middle,java.util.ArrayList,14.2899,0.2561,10
+String,300000,Insert at middle,java.util.LinkedList,286.6347,4.3172,10
+String,300000,Insert at end,MyArrayList,0.0172,0.0026,10
+String,300000,Insert at end,MyLinkedList,0.0277,0.0015,10
+String,300000,Insert at end,java.util.ArrayList,0.0159,0.0017,10
+String,300000,Insert at end,java.util.LinkedList,0.0291,0.0067,10
+String,300000,Delete at beginning,MyArrayList,28.3918,0.5242,10
+String,300000,Delete at beginning,MyLinkedList,0.0129,0.0017,10
+String,300000,Delete at beginning,java.util.ArrayList,28.0351,0.1615,10
+String,300000,Delete at beginning,java.util.LinkedList,0.0167,0.0023,10
+String,300000,Delete at middle,MyArrayList,14.1793,0.4306,10
+String,300000,Delete at middle,MyLinkedList,280.6214,2.8448,10
+String,300000,Delete at middle,java.util.ArrayList,14.1698,0.4097,10
+String,300000,Delete at middle,java.util.LinkedList,281.34,2.1378,10
+String,300000,Delete at end,MyArrayList,0.0123,0.0008,10
+String,300000,Delete at end,MyLinkedList,563.446,7.5863,10
+String,300000,Delete at end,java.util.ArrayList,0.0132,0.0011,10
+String,300000,Delete at end,java.util.LinkedList,0.0247,0.0057,10
+String,500000,Sequential traversal,MyArrayList,3.3407,0.2265,10
+String,500000,Sequential traversal,MyLinkedList,4.1129,0.4328,10
+String,500000,Sequential traversal,java.util.ArrayList,3.3031,0.0803,10
+String,500000,Sequential traversal,java.util.LinkedList,4.5922,0.8041,10
+String,500000,Random access,MyArrayList,0.0271,0.0027,10
+String,500000,Random access,MyLinkedList,474.8267,6.9115,10
+String,500000,Random access,java.util.ArrayList,0.0451,0.0155,10
+String,500000,Random access,java.util.LinkedList,239.8364,2.6299,10
+String,500000,Insert at beginning,MyArrayList,52.3106,1.5709,10
+String,500000,Insert at beginning,MyLinkedList,0.0287,0.0043,10
+String,500000,Insert at beginning,java.util.ArrayList,54.0636,2.8506,10
+String,500000,Insert at beginning,java.util.LinkedList,0.0301,0.0022,10
+String,500000,Insert at middle,MyArrayList,23.424,0.1685,10
+String,500000,Insert at middle,MyLinkedList,476.8969,5.5351,10
+String,500000,Insert at middle,java.util.ArrayList,23.7627,0.2777,10
+String,500000,Insert at middle,java.util.LinkedList,470.3416,6.6827,10
+String,500000,Insert at end,MyArrayList,0.0173,0.0019,10
+String,500000,Insert at end,MyLinkedList,0.0267,0.0011,10
+String,500000,Insert at end,java.util.ArrayList,0.0169,0.0007,10
+String,500000,Insert at end,java.util.LinkedList,0.0272,0.0017,10
+String,500000,Delete at beginning,MyArrayList,52.8665,1.7253,10
+String,500000,Delete at beginning,MyLinkedList,0.0127,0.0019,10
+String,500000,Delete at beginning,java.util.ArrayList,54.8712,3.9878,10
+String,500000,Delete at beginning,java.util.LinkedList,0.0633,0.1376,10
+String,500000,Delete at middle,MyArrayList,24.0285,1.5859,10
+String,500000,Delete at middle,MyLinkedList,468.457,8.8597,10
+String,500000,Delete at middle,java.util.ArrayList,23.7126,0.2543,10
+String,500000,Delete at middle,java.util.LinkedList,469.9552,4.7392,10
+String,500000,Delete at end,MyArrayList,0.0136,0.0013,10
+String,500000,Delete at end,MyLinkedList,943.4539,9.4844,10
+String,500000,Delete at end,java.util.ArrayList,0.017,0.0099,10
+String,500000,Delete at end,java.util.LinkedList,0.0245,0.0026,10
