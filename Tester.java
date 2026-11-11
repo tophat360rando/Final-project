@@ -6,10 +6,7 @@ import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.function.Supplier;
  
-/**
- * Correctness tests for MyArrayList, MyLinkedList and the java.util adapters.
- * Run this before Benchmark. Exits with a non-zero status if anything fails.
- */
+
 public class Tester {
  
     static int passed = 0;
@@ -43,10 +40,10 @@ public class Tester {
         return i == ref.size();
     }
  
-    // ---------------- individual tests ----------------
+    // individual test
  
     static void testEmpty(Supplier<MyList<Integer>> f) {
-        MyList<Integer> l = f.get();
+       MyList<Integer> l = f.get();
         check(l.size() == 0, "new list has size 0");
         check(l.isEmpty(), "new list isEmpty");
         check(!l.iterator().hasNext(), "empty iterator has no next");
@@ -69,10 +66,10 @@ public class Tester {
  
     static void testPositionalInsert(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
-        l.add(0, 10);             // into empty
-        l.add(0, 5);              // front
-        l.add(2, 20);             // end via index
-        l.add(1, 7);              // middle
+        l.add(0, 10);  // into empty
+        l.add(0, 5);  // front
+        l.add(2, 20); // end index
+        l.add(1, 7);   // middle
         List<Integer> ref = new ArrayList<>(List.of(5, 7, 10, 20));
         check(sameContents(l, ref), "insert front/middle/end gives 5,7,10,20");
         expectThrows(IndexOutOfBoundsException.class, () -> l.add(-1, 1), "add(-1, x)");
@@ -94,27 +91,33 @@ public class Tester {
     /** Catches stale head/tail pointers in the linked list after emptying it. */
     static void testEmptyThenReuse(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
-        for (int i = 0; i < 5; i++) l.add(i);
-        while (!l.isEmpty()) l.remove(l.size() - 1);   // drain from the end
+        for(int i = 0; i < 5; i++) l.add(i);
+        while (!l.isEmpty()) l.remove(l.size() -1);   // drain from the end
+        
         check(l.size() == 0, "drained from the end");
         l.add(42);
         l.add(43);
         check(sameContents(l, new ArrayList<>(List.of(42, 43))), "append works after draining from the end");
  
-        while (!l.isEmpty()) l.remove(0);              // drain from the front
+        while (!l.isEmpty()) l.remove(0);  // drain from front
         l.add(7);
         l.add(8);
         check(sameContents(l, new ArrayList<>(List.of(7, 8))), "append works after draining from the front");
  
-        MyList<Integer> one = f.get();
+        MyList<Integer> one=  f.get();
+        
         one.add(1);
+     
         one.remove(0);
+     
         one.add(0, 2);
         one.add(3);
         check(sameContents(one, new ArrayList<>(List.of(2, 3))), "single element removed then reused");
+
+     
     }
  
-    /** Appending after removing the tail must link to the new tail, not the old one. */
+    // Appending after removing the tail needs to link to new tail instead of old tail. 
     static void testTailAfterRemoveLast(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
         for (int i = 0; i < 5; i++) l.add(i);
@@ -123,7 +126,7 @@ public class Tester {
         check(sameContents(l, new ArrayList<>(List.of(0, 1, 2, 3, 99))), "append after remove(last)");
     }
  
-    /** Exercises MyArrayList growing past its capacity and shrinking back down. */
+    // Exercises MyArrayList increases past its capacity and shrinking back down. 
     static void testGrowAndShrink(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
         List<Integer> ref = new ArrayList<>();
@@ -138,7 +141,9 @@ public class Tester {
     static void testRandomized(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
         List<Integer> ref = new ArrayList<>();
+     
         Random rnd = new Random(7);
+     
         boolean ok = true;
         for (int step = 0; step < 20_000 && ok; step++) {
             int action = rnd.nextInt(3);
@@ -156,7 +161,7 @@ public class Tester {
                 ref.add(val);
                 l.add(val);
             }
-            ok &= l.size() == ref.size();
+            ok &= l.size() == ref.size(); //checks if works
         }
         check(ok, "20000 random ops: sizes and removed values match java.util.ArrayList");
         check(sameContents(l, ref), "20000 random ops: final contents match");
@@ -178,6 +183,7 @@ public class Tester {
                 check(l.remove(idx).equals(expected), "String remove returns right value");
             }
         }
+     
         check(sameContents(l, ref), "String list matches java.util.ArrayList");
     }
  
@@ -191,7 +197,7 @@ public class Tester {
         expectThrows(NoSuchElementException.class, it::next, "next() past the end");
     }
  
-    // ---------------- driver ----------------
+    // driver
  
     static void runAll(String name, Supplier<MyList<Integer>> intFactory, Supplier<MyList<String>> strFactory) {
         System.out.println("Testing " + name + " ...");
