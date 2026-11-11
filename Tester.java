@@ -66,10 +66,10 @@ public class Tester {
  
     static void testPositionalInsert(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
-        l.add(0, 10);  // into empty
-        l.add(0, 5);  // front
-        l.add(2, 20); // end index
-        l.add(1, 7);   // middle
+        l.add(0, 10);//into empty
+        l.add(0, 5);//front
+        l.add(2, 20);//end index
+        l.add(1, 7);//mid
         List<Integer> ref = new ArrayList<>(List.of(5, 7, 10, 20));
         check(sameContents(l, ref), "insert front/middle/end gives 5,7,10,20");
         expectThrows(IndexOutOfBoundsException.class, () -> l.add(-1, 1), "add(-1, x)");
@@ -230,7 +230,8 @@ public class Tester {
         expectThrows(IllegalArgumentException.class, () -> new MyArrayList<Integer>(0), "capacity 0 rejected");
  
         System.out.printf("%n%d checks passed, %d failed%n", passed, failed);
-        if (failed > 0) System.exit(1);
+        if (failed > 0) 
+        {System.exit(1);}
     }
 }
  
