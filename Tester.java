@@ -4,15 +4,27 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
- 
+
 
 public class Tester {
- 
+
     static int passed = 0;
     static int failed = 0;
     static String current = "";
- 
+
+    /** Like Runnable, but allowed to throw checked exceptions. */
+    interface ThrowingAction {
+        void run() throws Throwable;
+    }
+
+    // Matchers for the exception types the tests expect. They use plain "instanceof",
+    // so nothing here touches Class<...> or isInstance.
+    static final Predicate<Throwable> IOOBE = t -> t instanceof IndexOutOfBoundsException;
+    static final Predicate<Throwable> NSEE  = t -> t instanceof NoSuchElementException;
+    static final Predicate<Throwable> IAE   = t -> t instanceof IllegalArgumentException;
+
     static void check(boolean ok, String what) {
         if (ok) {
             passed++;
@@ -21,16 +33,16 @@ public class Tester {
             System.out.println("  FAIL [" + current + "] " + what);
         }
     }
- 
-    static void expectThrows(Class<? extends Throwable> type, Runnable r, String what) {
+
+    static void expectThrows(Predicate<Throwable> expected, ThrowingAction a, String what) {
         try {
-            r.run();
+            a.run();
             check(false, what + " (no exception thrown)");
         } catch (Throwable t) {
-            check(type.isInstance(t), what + " (threw " + t.getClass().getSimpleName() + ")");
+            check(expected.test(t), what + " (threw " + t.getClass().getSimpleName() + ")");
         }
     }
- 
+
     static <T> boolean sameContents(MyList<T> mine, List<T> ref) {
         if (mine.size() != ref.size()) return false;
         int i = 0;
@@ -39,20 +51,20 @@ public class Tester {
         }
         return i == ref.size();
     }
- 
+
     // individual test
- 
+
     static void testEmpty(Supplier<MyList<Integer>> f) {
-       MyList<Integer> l = f.get();
+        MyList<Integer> l = f.get();
         check(l.size() == 0, "new list has size 0");
         check(l.isEmpty(), "new list isEmpty");
         check(!l.iterator().hasNext(), "empty iterator has no next");
-        expectThrows(IndexOutOfBoundsException.class, () -> l.get(0), "get(0) on empty");
-        expectThrows(IndexOutOfBoundsException.class, () -> l.remove(0), "remove(0) on empty");
-        expectThrows(IndexOutOfBoundsException.class, () -> l.add(1, 5), "add(1) on empty");
-        expectThrows(NoSuchElementException.class, () -> l.iterator().next(), "next() on empty iterator");
+        expectThrows(IOOBE, () -> l.get(0), "get(0) on empty");
+        expectThrows(IOOBE, () -> l.remove(0), "remove(0) on empty");
+        expectThrows(IOOBE, () -> l.add(1, 5), "add(1) on empty");
+        expectThrows(NSEE, () -> l.iterator().next(), "next() on empty iterator");
     }
- 
+
     static void testBasicAddGet(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
         for (int i = 0; i < 100; i++) l.add(i);
@@ -60,22 +72,22 @@ public class Tester {
         boolean ok = true;
         for (int i = 0; i < 100; i++) ok &= l.get(i) == i;
         check(ok, "get(i) returns appended values in order");
-        expectThrows(IndexOutOfBoundsException.class, () -> l.get(-1), "get(-1)");
-        expectThrows(IndexOutOfBoundsException.class, () -> l.get(100), "get(size)");
+        expectThrows(IOOBE, () -> l.get(-1), "get(-1)");
+        expectThrows(IOOBE, () -> l.get(100), "get(size)");
     }
- 
+
     static void testPositionalInsert(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
-        l.add(0, 10);//into empty
-        l.add(0, 5);//front
-        l.add(2, 20);//end index
-        l.add(1, 7);//mid
+        l.add(0, 10); // into empty
+        l.add(0, 5);  // front
+        l.add(2, 20); // end index
+        l.add(1, 7);  // mid
         List<Integer> ref = new ArrayList<>(List.of(5, 7, 10, 20));
         check(sameContents(l, ref), "insert front/middle/end gives 5,7,10,20");
-        expectThrows(IndexOutOfBoundsException.class, () -> l.add(-1, 1), "add(-1, x)");
-        expectThrows(IndexOutOfBoundsException.class, () -> l.add(5, 1), "add(size+1, x)");
+        expectThrows(IOOBE, () -> l.add(-1, 1), "add(-1, x)");
+        expectThrows(IOOBE, () -> l.add(5, 1), "add(size+1, x)");
     }
- 
+
     static void testPositionalRemove(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
         for (int i = 0; i < 10; i++) l.add(i);
@@ -84,40 +96,38 @@ public class Tester {
         check(l.remove(3) == 4, "remove(middle) returns 4");
         List<Integer> ref = new ArrayList<>(List.of(1, 2, 3, 5, 6, 7, 8));
         check(sameContents(l, ref), "contents after three removals");
-        expectThrows(IndexOutOfBoundsException.class, () -> l.remove(-1), "remove(-1)");
-        expectThrows(IndexOutOfBoundsException.class, () -> l.remove(l.size()), "remove(size)");
+        expectThrows(IOOBE, () -> l.remove(-1), "remove(-1)");
+        expectThrows(IOOBE, () -> l.remove(l.size()), "remove(size)");
     }
- 
+
     /** Catches stale head/tail pointers in the linked list after emptying it. */
     static void testEmptyThenReuse(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
-        for(int i = 0; i < 5; i++) l.add(i);
-        while (!l.isEmpty()) l.remove(l.size() -1);   // drain from the end
-        
+        for (int i = 0; i < 5; i++) l.add(i);
+        while (!l.isEmpty()) l.remove(l.size() - 1);   // drain from the end
+
         check(l.size() == 0, "drained from the end");
         l.add(42);
         l.add(43);
         check(sameContents(l, new ArrayList<>(List.of(42, 43))), "append works after draining from the end");
- 
+
         while (!l.isEmpty()) l.remove(0);  // drain from front
         l.add(7);
         l.add(8);
         check(sameContents(l, new ArrayList<>(List.of(7, 8))), "append works after draining from the front");
- 
-        MyList<Integer> one=  f.get();
-        
+
+        MyList<Integer> one = f.get();
+
         one.add(1);
-     
+
         one.remove(0);
-     
+
         one.add(0, 2);
         one.add(3);
         check(sameContents(one, new ArrayList<>(List.of(2, 3))), "single element removed then reused");
-
-     
     }
- 
-    // Appending after removing the tail needs to link to new tail instead of old tail. 
+
+    // Appending after removing the tail needs to link to new tail instead of old tail.
     static void testTailAfterRemoveLast(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
         for (int i = 0; i < 5; i++) l.add(i);
@@ -125,8 +135,8 @@ public class Tester {
         l.add(99);
         check(sameContents(l, new ArrayList<>(List.of(0, 1, 2, 3, 99))), "append after remove(last)");
     }
- 
-    // Exercises MyArrayList increases past its capacity and shrinking back down. 
+
+    // Exercises MyArrayList increases past its capacity and shrinking back down.
     static void testGrowAndShrink(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
         List<Integer> ref = new ArrayList<>();
@@ -137,13 +147,13 @@ public class Tester {
         for (int i = 0; i < 50; i++) { l.add(i); ref.add(i); }
         check(sameContents(l, ref), "contents after growing again");
     }
- 
+
     static void testRandomized(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
         List<Integer> ref = new ArrayList<>();
-     
+
         Random rnd = new Random(7);
-     
+
         boolean ok = true;
         for (int step = 0; step < 20_000 && ok; step++) {
             int action = rnd.nextInt(3);
@@ -161,12 +171,12 @@ public class Tester {
                 ref.add(val);
                 l.add(val);
             }
-            ok &= l.size() == ref.size(); //checks if works
+            ok &= l.size() == ref.size(); // checks if works
         }
         check(ok, "20000 random ops: sizes and removed values match java.util.ArrayList");
         check(sameContents(l, ref), "20000 random ops: final contents match");
     }
- 
+
     static void testStrings(Supplier<MyList<String>> f) {
         MyList<String> l = f.get();
         List<String> ref = new ArrayList<>();
@@ -183,10 +193,10 @@ public class Tester {
                 check(l.remove(idx).equals(expected), "String remove returns right value");
             }
         }
-     
+
         check(sameContents(l, ref), "String list matches java.util.ArrayList");
     }
- 
+
     static void testIteratorOrder(Supplier<MyList<Integer>> f) {
         MyList<Integer> l = f.get();
         for (int i = 0; i < 20; i++) l.add(i);
@@ -194,11 +204,11 @@ public class Tester {
         int expect = 0;
         while (it.hasNext()) check(it.next() == expect++, "iterator order");
         check(expect == 20, "iterator visits all 20 elements");
-        expectThrows(NoSuchElementException.class, it::next, "next() past the end");
+        expectThrows(NSEE, () -> it.next(), "next() past the end");
     }
- 
+
     // driver
- 
+
     static void runAll(String name, Supplier<MyList<Integer>> intFactory, Supplier<MyList<String>> strFactory) {
         System.out.println("Testing " + name + " ...");
         current = name;
@@ -215,7 +225,7 @@ public class Tester {
         testIteratorOrder(intFactory);
         System.out.println(failed == failedBefore ? "  ok" : "  FAILURES in " + name);
     }
- 
+
     public static void main(String[] args) {
         runAll("MyArrayList", MyArrayList::new, MyArrayList::new);
         runAll("MyLinkedList", MyLinkedList::new, MyLinkedList::new);
@@ -225,13 +235,13 @@ public class Tester {
         runAll("java.util.LinkedList (adapter)",
                 () -> new JavaListAdapter<>(new LinkedList<Integer>()),
                 () -> new JavaListAdapter<>(new LinkedList<String>()));
- 
+
         current = "MyArrayList";
-        expectThrows(IllegalArgumentException.class, () -> new MyArrayList<Integer>(0), "capacity 0 rejected");
- 
+        expectThrows(IAE, () -> new MyArrayList<Integer>(0), "capacity 0 rejected");
+
         System.out.printf("%n%d checks passed, %d failed%n", passed, failed);
-        if (failed > 0) 
-        {System.exit(1);}
+        if (failed > 0) {
+            System.exit(1);
+        }
     }
 }
- 
